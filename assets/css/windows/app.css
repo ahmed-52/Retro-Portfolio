@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),
+      url('../../windows95.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
