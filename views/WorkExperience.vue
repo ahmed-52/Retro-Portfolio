@@ -13,7 +13,7 @@
             <p class="hero-subtitle">Software Engineering Intern • Summer 2026 • New York, NY</p>
           </div>
         </div>
-        <p class="hero-text">
+        <p class="hero-text !text-white">
           Next summer, I'll be joining <a href="https://www.datadoghq.com/" target="_blank" class="hero-link">Datadog</a>. Super excited to work on infrastructure that monitors millions of services at massive scale! 🐶
         </p>
       </div>

@@ -20,7 +20,7 @@ export const useWindowsStore = defineStore("windows", {
           left: null,
         },
         position: "absolute",
-        positionX: "5vw",
+        positionX: "15vw", // ✅ Desktop position
         positionY: "5vh",
         iconImage: "bio.png",
         altText: "Biography",
@@ -41,7 +41,7 @@ export const useWindowsStore = defineStore("windows", {
           left: null,
         },
         position: "absolute",
-        positionX: "10vw",
+        positionX: "10vw", // ✅ Desktop position
         positionY: "20vh",
         iconImage: "publications.png",
         altText: "Publications",
@@ -62,7 +62,7 @@ export const useWindowsStore = defineStore("windows", {
           left: "0",
         },
         position: "absolute",
-        positionX: "8vw",
+        positionX: "8vw", // ✅ Desktop position
         positionY: "15vh",
         iconImage: "resume.png",
         altText: "Résumé",
@@ -83,7 +83,7 @@ export const useWindowsStore = defineStore("windows", {
           left: '0px'
         },
         position: "absolute",
-        positionX: "8vw",
+        positionX: "8vw", // ✅ Desktop position
         positionY: "12vh",
         iconImage: 'projects.png',
         altText: 'My Projects',
@@ -104,7 +104,7 @@ export const useWindowsStore = defineStore("windows", {
           left: '0px'
         },
         position: "absolute",
-        positionX: "10vw",
+        positionX: "10vw", // ✅ Desktop position
         positionY: "18vh",
         iconImage: 'hackathon.png',
         altText: 'Cornell Hackathon',
@@ -125,7 +125,7 @@ export const useWindowsStore = defineStore("windows", {
           left: null,
         },
         position: "absolute",
-        positionX: "10vw",
+        positionX: "10vw", // ✅ Desktop position
         positionY: "10vh",
         iconImage: "work.png",
         altText: "Work Experience",
@@ -146,7 +146,7 @@ export const useWindowsStore = defineStore("windows", {
           left: "10px",
         },
         position: "absolute",
-        positionX: "4vw",
+        positionX: "4vw", // ✅ Desktop position
         positionY: "12vh",
         iconImage: "file.png",
         altText: "Photos",
@@ -167,7 +167,7 @@ export const useWindowsStore = defineStore("windows", {
           left: "0",
         },
         position: "absolute",
-        positionX: "4vw",
+        positionX: "6vw", // ✅ Desktop position
         positionY: "12vh",
         iconImage: "mail.png",
         altText: "Mail",
@@ -188,9 +188,9 @@ export const useWindowsStore = defineStore("windows", {
           left: '0px'
         },
         position: "absolute",
-        positionX: "3vw",
+        positionX: "3vw", // ✅ Desktop position
         positionY: "10vh",
-        positionXLarge: "15vw",
+        positionXLarge: "50vw",
         positionYLarge: "7vh",
         iconImage: "photos.png",
         altText: "Photos",
@@ -286,7 +286,7 @@ export const useWindowsStore = defineStore("windows", {
           left: '0px'
         },
         position: "absolute",
-        positionX: "12vw",
+        positionX: "12vw", // ✅ Desktop position
         positionY: "20vh",
         iconImage: "trash.png",
         altText: "Trash",
@@ -314,45 +314,6 @@ export const useWindowsStore = defineStore("windows", {
         height = window.innerHeight + "px";
       }
       return height;
-    },
-
-    // Get responsive position based on window ID
-    getResponsivePosition() {
-      return (windowId) => {
-        if (typeof window === "undefined") {
-          return { x: "10vw", y: "10vh" };
-        }
-
-        const windowObj = this.windows.find(w => w.windowId === windowId);
-        if (!windowObj) {
-          return { x: "10vw", y: "10vh" };
-        }
-
-        const screenWidth = window.innerWidth;
-        const isMobile = screenWidth < 768;
-        const isTablet = screenWidth >= 768 && screenWidth < 1024;
-        
-        let x, y;
-
-        if (isMobile) {
-          // Mobile: position near left edge with minimal offset
-          x = "2vw";
-          // Stagger Y positions based on window index to avoid overlap
-          const index = this.windows.findIndex(w => w.windowId === windowId);
-          y = `${Math.min(5 + (index * 4), 80)}vh`; // Cap at 80vh
-        } else if (isTablet) {
-          // Tablet: moderate offset
-          const originalX = parseFloat(windowObj.positionX);
-          x = `${Math.min(originalX * 0.6, 15)}vw`; // Scale down but cap at 15vw
-          y = windowObj.positionY;
-        } else {
-          // Desktop: use original positions
-          x = windowObj.positionX;
-          y = windowObj.positionY;
-        }
-
-        return { x, y };
-      };
     },
   },
 

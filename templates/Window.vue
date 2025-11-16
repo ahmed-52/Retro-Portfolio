@@ -2,6 +2,7 @@
 import interact from 'interactjs';
 import {
     onMounted,
+    onUnmounted,
     ref,
     defineProps,
     computed
@@ -43,43 +44,65 @@ const tempPosition = ref({
     x: 0,
     y: 0
 })
+
+const screenWidth = ref(typeof window !== 'undefined' ? window.innerWidth : 1024);
+
+const updateScreenWidth = () => {
+    if (typeof window !== 'undefined') {
+        screenWidth.value = window.innerWidth;
+    }
+};
+
+const isMobile = computed(() => screenWidth.value < 768);
+
 const windowsStore = useWindowsStore()
-const window = ref({})
+const windowData = ref({})
 const ComponentName = props.nameOfWindow
 const w = ref(400)
 const h = ref(400)
 
+// Separate computed for left position
+const leftPosition = computed(() => {
+    if (!windowData.value || !windowData.value.positionX) return '0';
+    return isMobile.value ? '0' : windowData.value.positionX;
+});
+
 const style = computed(() => ({
-    height: `${h.value}px`,
-    width: `${w.value}px`,
+    // MOBILE = full height + full width
+    height: isMobile.value ? '100%' : `${h.value}px`,   // h-full-ish
+    width:  isMobile.value ? '100%' : `${w.value}px`,
     transform: `translate(${position.value.x}px, ${position.value.y}px)`,
+    position: 'absolute',
+    left: leftPosition.value,
+    top: windowData.value?.positionY || '0',
     "--content-padding-left": props.content_padding_left || "5%",
     "--content-padding-right": props.content_padding_right || "5%",
     "--content-padding-top": props.content_padding_top || "5%",
     "--content-padding-bottom": props.content_padding_bottom || "5%",
-    "--fullscreen": windowsStore.getFullscreenWindowHeight, // assuming this is a method in your store
+    "--fullscreen": windowsStore.getFullscreenWindowHeight,
 }));
 
+
 const setActiveWindow = () => {
-    windowsStore.setActiveWindow(window.value.windowId)
-    windowsStore.zIndexIncrement(window.value.windowId)
+    windowsStore.setActiveWindow(windowData.value.windowId)
+    windowsStore.zIndexIncrement(windowData.value.windowId)
 }
 
 const toggleWindowSize = () => {
-    if (windowsStore.getWindowFullscreen(window.value.windowId) == true) {
+    if (windowsStore.getWindowFullscreen(windowData.value.windowId) == true) {
         const payload = {
             fullscreen: false,
-            windowId: window.value.windowId,
+            windowId: windowData.value.windowId,
         };
         windowsStore.setFullscreen(payload)
         position.value.x = tempPosition.value.x
         position.value.y = tempPosition.value.y
     } else if (
-        windowsStore.getWindowFullscreen(window.value.windowId) == false
+        windowsStore.getWindowFullscreen(windowData.value.windowId) == false
     ) {
         const payload = {
             fullscreen: true,
-            windowId: window.value.windowId,
+            windowId: windowData.value.windowId,
         };
         windowsStore.setFullscreen(payload)
         const tempX = position.value.x
@@ -94,7 +117,7 @@ const toggleWindowSize = () => {
 const minimizeWindow = () => {
     const payload = {
         windowState: "minimize",
-        windowId: window.value.windowId,
+        windowId: windowData.value.windowId,
     };
     windowsStore.setActiveWindow("")
     windowsStore.setWindowState(payload)
@@ -103,7 +126,7 @@ const minimizeWindow = () => {
 const closeWindow = () => {
     const payload = {
         windowState: "close",
-        windowId: window.value.windowId,
+        windowId: windowData.value.windowId,
     };
     windowsStore.setWindowState(payload)
 }
@@ -122,15 +145,19 @@ const getImagePath = (iconImage) => {
 let isDragging = false;
 
 onMounted(() => {
-    window.value = windowsStore.getWindowById(ComponentName)
-    const draggableWindow = interact("#" + window.value.windowId)
+    windowData.value = windowsStore.getWindowById(ComponentName)
+    
+    if (typeof window !== 'undefined') {
+        window.addEventListener('resize', updateScreenWidth);
+    }
+    
+    const draggableWindow = interact("#" + windowData.value.windowId)
     draggableWindow
         .draggable({
             listeners: {
                 move(event) {
                     position.value.x += event.dx
                     position.value.y += event.dy
-                    // event.target.style.transform = `translate(${position.value.x}px, ${position.value.y}px)`
                 }
             },
             modifiers: [
@@ -147,7 +174,6 @@ onMounted(() => {
         .on('dragmove', () => {
             if (isDragging) {
                 setActiveWindow();
-                // windowsStore.zIndexIncrement(window.value.windowId);
                 isDragging = false;
             }
         })
@@ -186,22 +212,34 @@ onMounted(() => {
             ],
         })
 })
+
+onUnmounted(() => {
+    if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', updateScreenWidth);
+    }
+})
 </script>
 
 <template>
-<div :id="window.windowId" :style="style" class="window window-style" :class="{
-        'fullscreen': window.fullscreen == true,
-        'minimize': window.fullscreen == 'minimize',
+<div 
+    :id="windowData.windowId" 
+    :style="style" 
+    class="window window-style" 
+    :class="{
+        'fullscreen': windowData.fullscreen == true,
+        'minimize': windowData.fullscreen == 'minimize',
+        'mobile': isMobile
     }"
     @click="setActiveWindow" 
-    @dragstart="setActiveWindow" @click.native="setActiveWindow">
+    @dragstart="setActiveWindow" 
+    @click.native="setActiveWindow">
     <div id="top-bar" class="top-bar-window" :class="
-        windowsStore.activeWindow == window.windowId
+        windowsStore.activeWindow == windowData.windowId
             ? 'top-bar'
             : 'top-bar-deactivated'
         " @dblclick="toggleWindowSize">
         <div class="window-name">
-            <img class="icon-image" :src="getImagePath(window.iconImage)" :alt="window.altText" />{{ window.displayName }}
+            <img class="icon-image" :src="getImagePath(windowData.iconImage)" :alt="windowData.altText" />{{ windowData.displayName }}
         </div>
         <div class="triple-button">
             <button class="minimize-button button" @click="minimizeWindow">
@@ -257,12 +295,19 @@ onMounted(() => {
     display: flex;
 }
 
+/* FORCE mobile positioning with !important */
+.window.mobile {
+    left: 0 !important;
+}
+
 .fullscreen {
     width: 100% !important;
     height: var(--fullscreen) !important;
     margin: 0;
     transition: all 0.5s ease;
     padding: 0;
+    left: 0 !important;
+    top: 0 !important;
 }
 
 .content {
@@ -324,4 +369,13 @@ onMounted(() => {
     margin-top: 0;
     margin-bottom: 0;
 }
+
+.window.mobile {
+  left: 0 !important;
+  top: 0 !important;
+}
+
+
 </style>
+
+

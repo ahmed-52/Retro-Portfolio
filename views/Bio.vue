@@ -1,139 +1,177 @@
 <template>
-  <div class="bio-container px-4 sm:px-0">
-    <div class="flex flex-col md:flex-row gap-4 md:gap-8 mb-8">
-      <!-- Left Column: Profile -->
-      <div class="flex flex-col flex-shrink-0 md:w-64">
-        <div class="mb-4">
-          <img 
-            class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 object-cover rounded-none mb-4" 
-            src="@/assets/Biography/ahmed24.jpg" 
-            alt="Ahmed Abdulla"
-          />
-          <h2 class="font-bold text-xl sm:text-2xl text-start mb-2">Ahmed Abdulla</h2>
-        </div>
-        <div class="text-xs sm:text-sm mb-4">
-          <p class="text-blue-600 mb-1">Available for opportunities</p>
-          <p class="text-blue-600 mb-4">
-            <a href="mailto:aaa384@cornell.edu" class="hover:underline">aaa384@cornell.edu</a>
-          </p>
-          <div class="mb-2">
-            <p class="font-semibold mb-2">Socials</p>
-            <div class="flex gap-3 items-center">
-              <a href="https://www.linkedin.com/in/ahmedabdulla1/" target="_blank" class="hover:opacity-80">
-                <img src="@/assets/Biography/linkedin.png" alt="LinkedIn" class="w-5 sm:w-6 h-5 sm:h-6" />
-              </a>
-              <a href="https://github.com/ahmed-52" target="_blank" class="hover:opacity-80">
-                <img src="@/assets/Biography/github.png" alt="GitHub" class="w-5 sm:w-6 h-5 sm:h-6" />
-              </a>
-            </div>
-          </div>
-        </div>
-        </div>
-
-      <!-- Right Column: Bio Content -->
-      <div class="flex flex-col flex-grow">
-        <div class="mb-6">
-          <h3 class="text-base sm:text-lg font-semibold mb-2">Software Engineer & AI Builder</h3>
-          <h2 class="text-2xl sm:text-3xl font-bold mb-4">Ahmed Abdulla</h2>
-          <p class="text-xs sm:text-sm mb-2">
-            Software Engineer & AI Builder • IS @ Cornell University '27
-          </p>
-          <p class="text-xs sm:text-sm mb-4">New York 📍</p>
-        </div>
-
-        <div class="mb-6">
-          <h3 class="font-bold text-sm sm:text-md mb-3">About Me</h3>
-          <p class="text-xs sm:text-sm mb-3">
-            Software engineer and AI builder at Cornell University (IS '27). Building scalable systems and intelligent solutions that drive real impact.
-          </p>
-          <p class="text-xs sm:text-sm mb-3">
-            Currently Research Software Engineer at Cornell Lab of Ornithology, and VP/Director of Tech at Cornell Data Strategy. Previously interned at Simulacrum Inc. and Iconectiv. Incoming intern at Datadog.
-          </p>
-          <p class="text-xs sm:text-sm">
-            Always interested in discussing new opportunities and innovative projects. Based in New York.
-          </p>
-        </div>
-<!--         
-        <div class="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400">
-          <p class="text-sm font-semibold mb-2">💼 Explore My Work</p>
-          <p class="text-sm">
-            Check out my other files and projects on this desktop! Open the <strong>Résumé</strong> window for my full experience, or explore other windows to see my projects and work.
-          </p>
-        </div> -->
-        </div>
+  <div
+    class="bio-container h-full bg-white border-t border-l border-gray-400"
+  >
+    <!-- Hero Section with Photo -->
+    <div class="bg-white text-center px-4 py-3 border-b-2 border-gray-400">
+      <img
+        class="w-28 h-28 mx-auto mb-3 object-cover border border-black"
+        src="@/assets/Biography/ahmed24.jpg"
+        alt="Ahmed Abdulla"
+      />
+      <h1 class="text-base font-bold mb-0.5">Ahmed Abdulla</h1>
+      <p class="text-[11px] text-gray-800 leading-tight">
+        Software Engineer &amp; AI Builder
+      </p>
+      <p class="text-[10px] text-gray-700 leading-tight">
+        Info Sci @ Cornell University '27 · New York 📍
+      </p>
     </div>
 
-    <div class="flex flex-wrap mt-5 gap-2 items-center mb-6 justify-center md:justify-start">
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="Python"
-        src="https://img.shields.io/badge/-Python-blue"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="JavaScript"
-        src="https://img.shields.io/badge/-Javascript-yellow"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="TypeScript"
-        src="https://img.shields.io/badge/-TypeScript-3178c6"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="Java"
-        src="https://img.shields.io/badge/-Java-orange"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="C/C++"
-        src="https://img.shields.io/badge/-C%2FC%2B%2B-00599c"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="SQL"
-        src="https://img.shields.io/badge/-SQL-lightgrey"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="React"
-        src="https://img.shields.io/badge/-React-61dafb"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="FastAPI"
-        src="https://img.shields.io/badge/-FastAPI-009688"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="Flask"
-        src="https://img.shields.io/badge/-Flask-406893"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="PostgreSQL"
-        src="https://img.shields.io/badge/-PostgreSQL-336791"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="Docker"
-        src="https://img.shields.io/badge/-Docker-2496ed"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="PyTorch"
-        src="https://img.shields.io/badge/-PyTorch-ee4c2c"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="TensorFlow"
-        src="https://img.shields.io/badge/-TensorFlow-ff6f00"
-      />
-      <img
-        class="w-auto h-5 rounded-none text-xs"
-        alt="AWS"
-        src="https://img.shields.io/badge/-AWS-232f3e"
-      />
+    <!-- Quick Links Navigation -->
+    <div
+      class="bg-[#c0d9ff] px-2 py-2 border-b-2 border-gray-400 flex flex-wrap justify-center gap-2"
+    >
+      <button
+        @click="openWindow('WorkExperienceWindow')"
+        class="win95-btn text-[11px] font-bold"
+      >
+        Work
+      </button>
+      <button
+        @click="openWindow('ProjectsWindow')"
+        class="win95-btn text-[11px] font-bold"
+      >
+        Projects
+      </button>
+      <button
+        @click="openWindow('HackathonWindow')"
+        class="win95-btn text-[11px] font-bold"
+      >
+        Hackathons
+      </button>
+      <button
+        @click="openWindow('PublicationsWindow')"
+        class="win95-btn text-[11px] font-bold"
+      >
+        Publications
+      </button>
     </div>
-</div>
+
+        <div class="bg-white px-4 py-3 border-b-2 border-gray-400 text-[11px]">
+      <p class="font-bold mb-1">About Me</p>
+      <p class="mb-1 leading-snug">
+        Software engineer and AI builder at Cornell University. Building
+        scalable systems and intelligent tools that actually ship.
+      </p>
+      <p class="leading-snug">
+        Research Software Engineer @ Cornell Lab of Ornithology · VP / Director
+        of Tech @ Cornell Data Strategy · ex-Simulacrum, Iconectiv · Incoming
+        SWE intern @ Datadog.
+      </p>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="bg-white px-4 py-3 border-b-2 border-gray-400 text-[11px]">
+      <p class="font-bold mb-1">Contact</p>
+      <a
+        href="mailto:aaa384@cornell.edu"
+        class="text-blue-700 underline mb-2 inline-block"
+      >
+        aaa384@cornell.edu
+      </a>
+
+      <div class="mt-2">
+        <p class="font-bold mb-1">Socials</p>
+        <div class="flex gap-2">
+          <a
+            href="https://www.linkedin.com/in/ahmedabdulla1/"
+            target="_blank"
+            class="hover:opacity-70"
+          >
+            <img
+              src="@/assets/Biography/linkedin.png"
+              alt="LinkedIn"
+              class="w-5 h-5"
+            />
+          </a>
+          <a
+            href="https://github.com/ahmed-52"
+            target="_blank"
+            class="hover:opacity-70"
+          >
+            <img
+              src="@/assets/Biography/github.png"
+              alt="GitHub"
+              class="w-5 h-5"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About -->
+
+    <!-- Tech Stack -->
+    <div class="bg-white px-4 py-3 text-[11px]">
+      <p class="font-bold mb-2">Tech Stack</p>
+      <div class="flex flex-wrap gap-1">
+<span class="px-2 py-1 bg-blue-500 text-white text-xs">Python</span>
+        <span class="px-2 py-1 bg-yellow-400 text-black text-xs">JavaScript</span>
+        <span class="px-2 py-1 bg-blue-600 text-white text-xs">TypeScript</span>
+        <span class="px-2 py-1 bg-orange-500 text-white text-xs">Java</span>
+        <span class="px-2 py-1 bg-blue-700 text-white text-xs">C/C++</span>
+        <span class="px-2 py-1 bg-gray-600 text-white text-xs">SQL</span>
+        <span class="px-2 py-1 bg-cyan-400 text-black text-xs">React</span>
+        <span class="px-2 py-1 bg-teal-600 text-white text-xs">FastAPI</span>
+        <span class="px-2 py-1 bg-gray-700 text-white text-xs">Flask</span>
+        <span class="px-2 py-1 bg-blue-800 text-white text-xs">PostgreSQL</span>
+        <span class="px-2 py-1 bg-blue-500 text-white text-xs">Docker</span>
+        <span class="px-2 py-1 bg-orange-600 text-white text-xs">PyTorch</span>
+        <span class="px-2 py-1 bg-orange-500 text-white text-xs">TensorFlow</span>
+        <span class="px-2 py-1 bg-gray-800 text-white text-xs">AWS</span>
+      </div>
+    </div>
+  </div>
 </template>
+
+<script setup>
+import { useWindowsStore } from '@/stores/windows';
+
+const windowsStore = useWindowsStore();
+
+const openWindow = (windowId) => {
+  windowsStore.setWindowState({
+    windowState: 'open',
+    windowId,
+  });
+};
+</script>
+
+<style scoped>
+.bio-container {
+  max-width: 430px; /* keeps it compact on desktop */
+  margin: 0 auto;
+  font-family: 'MS Sans Serif', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+}
+
+/* Win95 3D button */
+.win95-btn {
+  min-width: 88px;
+  padding: 4px 10px;
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  box-shadow: inset -1px -1px 0 #000000;
+  line-height: 1;
+}
+
+.win95-btn:active {
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 0 #000000;
+  transform: translate(1px, 1px);
+}
+
+/* small gray pills for tech stack */
+.pill {
+  padding: 2px 6px;
+  border: 1px solid #808080;
+  background: #e0e0e0;
+}
+</style>
