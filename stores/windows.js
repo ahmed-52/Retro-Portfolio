@@ -2,36 +2,29 @@ import { defineStore } from "pinia";
 
 export const useWindowsStore = defineStore("windows", {
   state: () => ({
-    // Height of Fullscreen Window
-    // fullscreenWindowHeight: window.innerHeight + "px",
-
     activeWindow: "",
-
-    // Active Windows Array State
     activeWindows: [],
-
-    // Z-index State
     zIndex: 2,
 
     windows: [
       {
-        windowId: "BiographyWindow", // Unique ID
-        windowState: "close", // Window State [open, close, minimize]
-        displayName: "Biography", // Display Name (title under icon)
-        windowComponent: "window", // Window Component (can be changed to use modified windows)
-        windowContent: "bio", // Window Content (used under slots)
+        windowId: "BiographyWindow",
+        windowState: "close",
+        displayName: "Biography",
+        windowComponent: "window",
+        windowContent: "bio",
         windowContentPadding: {
           top: null,
           right: null,
           bottom: null,
           left: null,
-        }, // Window Content Padding
-        position: "absolute", // Window Position
-        positionX: "5vw", // Window Position X (when first opened)
-        positionY: "5%", // Window Position Y (when first opened)
-        iconImage: "bio.png", // Window Icon Image
-        altText: "Biography", // Window Icon Alt Text
-        fullscreen: false, // Window Fullscreen State [true, false]
+        },
+        position: "absolute",
+        positionX: "5vw",
+        positionY: "5vh",
+        iconImage: "bio.png",
+        altText: "Biography",
+        fullscreen: false,
         showInAppGrid: true,
         showInNavbar: true,
       },
@@ -48,7 +41,7 @@ export const useWindowsStore = defineStore("windows", {
           left: null,
         },
         position: "absolute",
-        positionX: "20vw",
+        positionX: "10vw",
         positionY: "20vh",
         iconImage: "publications.png",
         altText: "Publications",
@@ -56,25 +49,24 @@ export const useWindowsStore = defineStore("windows", {
         showInAppGrid: true,
         showInNavbar: true,
       },
-
       {
-        windowId: "ResumeWindow", // Unique ID
-        windowState: "close", // Window State [open, close, minimize]
-        displayName: "Résumé", // Display Name (title under icon)
-        windowComponent: "window", // Window Component (can be changed to use modified windows)
-        windowContent: "resume", // Window Content (used under slots)
+        windowId: "ResumeWindow",
+        windowState: "close",
+        displayName: "Résumé",
+        windowComponent: "window",
+        windowContent: "resume",
         windowContentPadding: {
           top: "0",
           right: "0",
           bottom: "0",
           left: "0",
-        }, // Window Content Padding
-        position: "absolute", // Window Position
-        positionX: "10vw", // Window Position X (when first opened)
-        positionY: "15vh", // Window Position Y (when first opened)
-        iconImage: "resume.png", // Window Icon Image
-        altText: "Résumé", // Window Icon Alt Text
-        fullscreen: false, // Window Fullscreen State [true, false]
+        },
+        position: "absolute",
+        positionX: "8vw",
+        positionY: "15vh",
+        iconImage: "resume.png",
+        altText: "Résumé",
+        fullscreen: false,
         showInAppGrid: true,
         showInNavbar: true,
       },
@@ -83,7 +75,7 @@ export const useWindowsStore = defineStore("windows", {
         windowState: 'close',
         displayName: 'Projects',
         windowComponent: 'window',
-        windowContent: 'projects',  // matches the name in slotViews
+        windowContent: 'projects',
         windowContentPadding: {
           top: '0px',
           right: '0px',
@@ -91,11 +83,13 @@ export const useWindowsStore = defineStore("windows", {
           left: '0px'
         },
         position: "absolute",
-        positionX: "10%",
-        positionY: "12%",
+        positionX: "8vw",
+        positionY: "12vh",
         iconImage: 'projects.png',
         altText: 'My Projects',
-        fullscreen: false
+        fullscreen: false,
+        showInAppGrid: true,
+        showInNavbar: true,
       },
       {
         windowId: 'HackathonWindow',
@@ -110,7 +104,7 @@ export const useWindowsStore = defineStore("windows", {
           left: '0px'
         },
         position: "absolute",
-        positionX: "20vw",
+        positionX: "10vw",
         positionY: "18vh",
         iconImage: 'hackathon.png',
         altText: 'Cornell Hackathon',
@@ -119,23 +113,23 @@ export const useWindowsStore = defineStore("windows", {
         showInNavbar: true,
       },
       {
-        windowId: "WorkExperienceWindow", // Unique ID
-        windowState: "close", // Window State [open, close, minimize]
-        displayName: "Work Experience", // Display Name (title under icon)
-        windowComponent: "window", // Window Component (can be changed to use modified windows)
-        windowContent: "workexperience", // Window Content (used under slots)
+        windowId: "WorkExperienceWindow",
+        windowState: "close",
+        displayName: "Work Experience",
+        windowComponent: "window",
+        windowContent: "workexperience",
         windowContentPadding: {
           top: null,
           right: null,
           bottom: null,
           left: null,
-        }, // Window Content Padding
-        position: "absolute", // Window Position
-        positionX: "15vw", // Window Position X (when first opened)
-        positionY: "10vh", // Window Position Y (when first opened)
-        iconImage: "work.png", // Window Icon Image
-        altText: "Work Experience", // Window Icon Alt Text
-        fullscreen: false, // Window Fullscreen State [true, false]
+        },
+        position: "absolute",
+        positionX: "10vw",
+        positionY: "10vh",
+        iconImage: "work.png",
+        altText: "Work Experience",
+        fullscreen: false,
         showInAppGrid: true,
         showInNavbar: true,
       },
@@ -152,14 +146,13 @@ export const useWindowsStore = defineStore("windows", {
           left: "10px",
         },
         position: "absolute",
-        positionX: "6vw",
+        positionX: "4vw",
         positionY: "12vh",
         iconImage: "file.png",
         altText: "Photos",
         fullscreen: false,
         showInAppGrid: false,
         showInNavbar: false,
-        // imagePreview: file.src
       },
       {
         windowId: "MailWindow",
@@ -174,7 +167,7 @@ export const useWindowsStore = defineStore("windows", {
           left: "0",
         },
         position: "absolute",
-        positionX: "6vw",
+        positionX: "4vw",
         positionY: "12vh",
         iconImage: "mail.png",
         altText: "Mail",
@@ -183,25 +176,25 @@ export const useWindowsStore = defineStore("windows", {
         showInNavbar: true,
       },
       {
-        windowId: "PhotosWindow", // Unique ID
-        windowState: "close", // Window State [open, close, minimize]
-        displayName: "Photos", // Display Name (title under icon)
-        windowComponent: 'FilesWindow', // Window Component (can be changed to use modified windows)
-        windowContent: '', // Window Content (used under slots)
+        windowId: "PhotosWindow",
+        windowState: "close",
+        displayName: "Photos",
+        windowComponent: 'FilesWindow',
+        windowContent: '',
         windowContentPadding: {
           top: '0px',
           right: '0px',
           bottom: '0px',
           left: '0px'
-        }, // Window Content Padding
-        position: "absolute", // Window Position
-        positionX: "5vw", // Window Position X (when first opened)
-        positionY: "10vh", // Window Position Y (when first opened)
-        positionXLarge: "23vw",
-        positionYLarge: "7%",
-        iconImage: "photos.png", // Window Icon Image
-        altText: "Photos", // Window Icon Alt Text
-        fullscreen: false, // Window Fullscreen State [true, false]
+        },
+        position: "absolute",
+        positionX: "3vw",
+        positionY: "10vh",
+        positionXLarge: "15vw",
+        positionYLarge: "7vh",
+        iconImage: "photos.png",
+        altText: "Photos",
+        fullscreen: false,
         showInNavbar: true,
         folderContent: [
           {
@@ -293,7 +286,7 @@ export const useWindowsStore = defineStore("windows", {
           left: '0px'
         },
         position: "absolute",
-        positionX: "25vw",
+        positionX: "12vw",
         positionY: "20vh",
         iconImage: "trash.png",
         altText: "Trash",
@@ -321,6 +314,45 @@ export const useWindowsStore = defineStore("windows", {
         height = window.innerHeight + "px";
       }
       return height;
+    },
+
+    // Get responsive position based on window ID
+    getResponsivePosition() {
+      return (windowId) => {
+        if (typeof window === "undefined") {
+          return { x: "10vw", y: "10vh" };
+        }
+
+        const windowObj = this.windows.find(w => w.windowId === windowId);
+        if (!windowObj) {
+          return { x: "10vw", y: "10vh" };
+        }
+
+        const screenWidth = window.innerWidth;
+        const isMobile = screenWidth < 768;
+        const isTablet = screenWidth >= 768 && screenWidth < 1024;
+        
+        let x, y;
+
+        if (isMobile) {
+          // Mobile: position near left edge with minimal offset
+          x = "2vw";
+          // Stagger Y positions based on window index to avoid overlap
+          const index = this.windows.findIndex(w => w.windowId === windowId);
+          y = `${Math.min(5 + (index * 4), 80)}vh`; // Cap at 80vh
+        } else if (isTablet) {
+          // Tablet: moderate offset
+          const originalX = parseFloat(windowObj.positionX);
+          x = `${Math.min(originalX * 0.6, 15)}vw`; // Scale down but cap at 15vw
+          y = windowObj.positionY;
+        } else {
+          // Desktop: use original positions
+          x = windowObj.positionX;
+          y = windowObj.positionY;
+        }
+
+        return { x, y };
+      };
     },
   },
 
@@ -358,12 +390,10 @@ export const useWindowsStore = defineStore("windows", {
       }
     },
 
-    // Push Active Window
     pushActiveWindow(window) {
       this.activeWindows.push(window)
     },
 
-    // Pop Active Window
     popActiveWindow(window) {
       const windowIndex = this.activeWindows.indexOf(window)
       if (windowIndex !== -1) {
@@ -380,8 +410,6 @@ export const useWindowsStore = defineStore("windows", {
     },
 
     setWindowState(payload) {
-      // payload = {'windowState': 'open', 'windowId': 'WindowOne'}
-
       const getArrItem = () => {
         return this.windows.find(
           (windows) => windows.windowId === payload.windowId
