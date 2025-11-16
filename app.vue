@@ -11,6 +11,7 @@ import ImagePreviewWindow from './templates/ImagePreviewWindow.vue'
 import StartMenu from './templates/StartMenu.vue'
 import Projects from './views/Projects.vue'
 import Hackathon from './views/Hackathon.vue'
+import Publications from './views/Publications.vue'
 import {
     useWindowsStore
 } from './stores/windows'
@@ -29,6 +30,8 @@ const slotViews = [
   { name: 'resume', comp: Resume },
   { name: 'workexperience', comp: WorkExperience },
   { name: 'projects', comp: Projects }
+  ,
+  { name: 'publications', comp: Publications }
   ,
   { name: 'hackathon', comp: Hackathon }
 ]
@@ -122,6 +125,47 @@ onMounted(() => {
   src: url("@/assets/fonts/MS-Sans-Serif.ttf");
 }
 
+/* Windows 95 SVG Cursors (temporary strong rules for debugging) */
+*,
+*::before,
+*::after {
+  cursor: url('/cursors/arrow.svg') 0 0, url('/cursors/arrow.png') 0 0, default !important;
+}
+
+a,
+*
+button,
+.link,
+.link-btn,
+.hero-link,
+.text-link,
+.project-link,
+.modal-close-btn,
+.photo-frame,
+.photo-item,
+.mosaic-photo,
+.strip-photo,
+.banner-photo,
+.mini-photo,
+.gallery-photo,
+.photo-item-small,
+.win95-button,
+input[type="submit"],
+input[type="button"],
+[role="button"] {
+  cursor: url('/cursors/pointer.svg') 5 0, url('/cursors/pointer.png') 5 0, pointer !important;
+}
+
+/* Everything else uses default arrow */
+.top-bar-window,
+#top-bar,
+.draggable,
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  cursor: url('/cursors/arrow.svg') 0 0, url('/cursors/arrow.png') 0 0, default !important;
+}
 /*-------------------------------------------*\
     Utilities
 \*-------------------------------------------*/
