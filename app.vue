@@ -63,7 +63,7 @@ onMounted(() => {
   // Show Win95 loader briefly on page load
   setTimeout(() => {
     showLoader.value = false
-  }, 2000)
+  }, 1000)
 
   let navbar = document.getElementById("navbar");
   let navbarHeight = navbar.clientHeight;
