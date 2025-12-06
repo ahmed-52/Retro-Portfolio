@@ -23,7 +23,7 @@
             </div>
         </a>
         <div class="divider"></div>
-        <a href="/files/ahmed_resume.pdf" target="_blank">
+        <a href="/files/ahmed_resumenn.pdf" target="_blank">
             <div class="bar">
                 <img class="social-image" src="@/assets/win95Icons/resume.png" />
                 <u>R</u>ésumé
