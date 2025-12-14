@@ -50,9 +50,14 @@ const w = ref(0)
 const h = ref(0)
 const gridHeight = ref("")
 const fileExplorer = ref(null)
-const files = ref(windowsStore.photoFolderContent)
+const files = computed(() => windowsStore.photoFolderContent || [])
 const currentIndex = 0
-const file = ref(files.value[currentIndex])
+const file = computed(() => {
+    if (files.value && files.value.length > 0) {
+        return files.value[currentIndex]
+    }
+    return { type: 'photo', src: '', title: '', content: { src: '' } }
+})
 
 onMounted(() => {
     let gridH = fileExplorer.value.clientHeight

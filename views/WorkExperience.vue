@@ -31,7 +31,7 @@
             </div>
             <div class="flex-1">
               <h2 class="section-title">Cornell Lab of Ornithology</h2>
-              <p class="section-meta">Research Software Engineer • Sep 2025 – Present • Ithaca, NY</p>
+              <p class="section-meta">Machine Learning Researcher • Sep 2025 – Present • Ithaca, NY</p>
             </div>
           </div>
         </div>

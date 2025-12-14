@@ -1,127 +1,96 @@
 <template>
-  <div
-    class="bio-container h-full bg-white border-t border-l border-gray-400"
-  >
-    <!-- Hero Section with Photo -->
-    <div class="bg-white text-center px-4 py-3 border-b-2 border-gray-400">
+  <div class="bio-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
       <img
-        class="w-28 h-28 mx-auto mb-3 object-cover border border-black"
+        class="profile-photo"
         src="@/assets/Biography/ahmed24.jpg"
         alt="Ahmed Abdulla"
       />
-      <h1 class="text-base font-bold mb-0.5">Ahmed Abdulla</h1>
-      <p class="text-[11px] text-gray-800 leading-tight">
-        Software Engineer &amp; AI Builder
-      </p>
-      <p class="text-[10px] text-gray-700 leading-tight">
-        Info Sci @ Cornell University '27 · New York 📍
-      </p>
-    </div>
+      <h1 class="name">Ahmed Abdulla</h1>
+      <p class="title">Software Engineer & Research</p>
+      <p class="subtitle">Info Sci @ Cornell University '27 · New York 📍</p>
+    </section>
 
-    <!-- Quick Links Navigation -->
-    <div
-      class="bg-[#c0d9ff] px-2 py-2 border-b-2 border-gray-400 flex flex-wrap justify-center gap-2"
-    >
-      <button
-        @click="openWindow('WorkExperienceWindow')"
-        class="win95-btn text-[11px] font-bold"
-      >
+    <!-- Quick Navigation -->
+    <nav class="nav-section">
+      <button @click="openWindow('WorkExperienceWindow')" class="nav-btn">
         Work
       </button>
-      <button
-        @click="openWindow('ProjectsWindow')"
-        class="win95-btn text-[11px] font-bold"
-      >
+      <button @click="openWindow('ProjectsWindow')" class="nav-btn">
         Projects
       </button>
-      <button
-        @click="openWindow('HackathonWindow')"
-        class="win95-btn text-[11px] font-bold"
-      >
+      <button @click="openWindow('HackathonWindow')" class="nav-btn">
         Hackathons
       </button>
-      <button
-        @click="openWindow('PublicationsWindow')"
-        class="win95-btn text-[11px] font-bold"
-      >
+      <button @click="openWindow('PublicationsWindow')" class="nav-btn">
         Publications
       </button>
-    </div>
+    </nav>
 
-        <div class="bg-white px-4 py-3 border-b-2 border-gray-400 text-[11px]">
-      <p class="font-bold mb-1">About Me</p>
-      <p class="mb-1 leading-snug">
-        Software engineer and AI builder at Cornell University. Building
-        scalable systems and intelligent tools that actually ship.
+    <!-- About Section -->
+    <section class="content-section">
+      <h2 class="section-title">About Me</h2>
+      <p class="bio-text">
+Software Engineer and researcher at Cornell working on time-series models and computer vision. I build things, publish papers, and ship code.
       </p>
-      <p class="leading-snug">
-        Research Software Engineer @ Cornell Lab of Ornithology · VP / Director
-        of Tech @ Cornell Data Strategy · ex-Simulacrum, Iconectiv · Incoming
-        SWE intern @ Datadog.
+      <p class="bio-text">
+        Incoming @ Datadog ·
+        Machine Learning Research @ Cornell Lab of Ornithology · 
+        President @ Cornell Data Strategy
       </p>
-    </div>
+    </section>
 
-    <!-- Contact Info -->
-    <div class="bg-white px-4 py-3 border-b-2 border-gray-400 text-[11px]">
-      <p class="font-bold mb-1">Contact</p>
-      <a
-        href="mailto:aaa384@cornell.edu"
-        class="text-blue-700 underline mb-2 inline-block"
-      >
+    <!-- Contact Section -->
+    <section class="content-section">
+      <h2 class="section-title">Contact</h2>
+      <a href="mailto:aaa384@cornell.edu" class="email-link">
         aaa384@cornell.edu
       </a>
 
-      <div class="mt-2">
-        <p class="font-bold mb-1">Socials</p>
-        <div class="flex gap-2">
+      <div class="socials-container">
+        <h3 class="subsection-title">Socials</h3>
+        <div class="social-links">
           <a
             href="https://www.linkedin.com/in/ahmedabdulla1/"
             target="_blank"
-            class="hover:opacity-70"
+            class="social-icon"
+            aria-label="LinkedIn"
           >
-            <img
-              src="@/assets/Biography/linkedin.png"
-              alt="LinkedIn"
-              class="w-5 h-5"
-            />
+            <img src="@/assets/Biography/linkedin.png" alt="LinkedIn" />
           </a>
           <a
             href="https://github.com/ahmed-52"
             target="_blank"
-            class="hover:opacity-70"
+            class="social-icon"
+            aria-label="GitHub"
           >
-            <img
-              src="@/assets/Biography/github.png"
-              alt="GitHub"
-              class="w-5 h-5"
-            />
+            <img src="@/assets/Biography/github.png" alt="GitHub" />
           </a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- About -->
-
-    <!-- Tech Stack -->
-    <div class="bg-white px-4 py-3 text-[11px]">
-      <p class="font-bold mb-2">Tech Stack</p>
-      <div class="flex flex-wrap gap-1">
-<span class="px-2 py-1 bg-blue-500 text-white text-xs">Python</span>
-        <span class="px-2 py-1 bg-yellow-400 text-black text-xs">JavaScript</span>
-        <span class="px-2 py-1 bg-blue-600 text-white text-xs">TypeScript</span>
-        <span class="px-2 py-1 bg-orange-500 text-white text-xs">Java</span>
-        <span class="px-2 py-1 bg-blue-700 text-white text-xs">C/C++</span>
-        <span class="px-2 py-1 bg-gray-600 text-white text-xs">SQL</span>
-        <span class="px-2 py-1 bg-cyan-400 text-black text-xs">React</span>
-        <span class="px-2 py-1 bg-teal-600 text-white text-xs">FastAPI</span>
-        <span class="px-2 py-1 bg-gray-700 text-white text-xs">Flask</span>
-        <span class="px-2 py-1 bg-blue-800 text-white text-xs">PostgreSQL</span>
-        <span class="px-2 py-1 bg-blue-500 text-white text-xs">Docker</span>
-        <span class="px-2 py-1 bg-orange-600 text-white text-xs">PyTorch</span>
-        <span class="px-2 py-1 bg-orange-500 text-white text-xs">TensorFlow</span>
-        <span class="px-2 py-1 bg-gray-800 text-white text-xs">AWS</span>
+    <!-- Tech Stack Section -->
+    <section class="content-section">
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="tech-grid">
+        <span class="tech-badge python">Python</span>
+        <span class="tech-badge javascript">JavaScript</span>
+        <span class="tech-badge typescript">TypeScript</span>
+        <span class="tech-badge java">Java</span>
+        <span class="tech-badge cpp">C/C++</span>
+        <span class="tech-badge sql">SQL</span>
+        <span class="tech-badge react">React</span>
+        <span class="tech-badge fastapi">FastAPI</span>
+        <span class="tech-badge flask">Flask</span>
+        <span class="tech-badge postgres">PostgreSQL</span>
+        <span class="tech-badge docker">Docker</span>
+        <span class="tech-badge pytorch">PyTorch</span>
+        <span class="tech-badge tensorflow">TensorFlow</span>
+        <span class="tech-badge aws">AWS</span>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -139,27 +108,90 @@ const openWindow = (windowId) => {
 </script>
 
 <style scoped>
+/* ===================================
+   Container & Layout
+   =================================== */
 .bio-container {
-  max-width: 430px; /* keeps it compact on desktop */
+  max-width: 460px;
   margin: 0 auto;
-  font-family: 'MS Sans Serif', system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', sans-serif;
+  height: 100%;
+  background: white;
+  border-top: 1px solid #a0a0a0;
+  border-left: 1px solid #a0a0a0;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
 }
 
-/* Win95 3D button */
-.win95-btn {
+/* ===================================
+   Hero Section
+   =================================== */
+.hero-section {
+  background: linear-gradient(to bottom, #ffffff 0%, #f8f8f8 100%);
+  text-align: center;
+  padding: 24px 16px;
+  border-bottom: 2px solid #a0a0a0;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 16px;
+  object-fit: cover;
+  border: 2px solid #333;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 0 6px 0;
+  color: #1a1a1a;
+}
+
+.title {
+  font-size: 13px;
+  color: #444;
+  margin: 0 0 4px 0;
+  font-weight: 500;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+
+/* ===================================
+   Navigation Section
+   =================================== */
+.nav-section {
+  background: #c0d9ff;
+  padding: 8px;
+  border-bottom: 2px solid #a0a0a0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.nav-btn {
   min-width: 88px;
-  padding: 4px 10px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: bold;
   background: #c0c0c0;
+  border: none;
   border-top: 2px solid #ffffff;
   border-left: 2px solid #ffffff;
   border-right: 2px solid #808080;
   border-bottom: 2px solid #808080;
   box-shadow: inset -1px -1px 0 #000000;
-  line-height: 1;
+  cursor: pointer;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
 }
 
-.win95-btn:active {
+.nav-btn:active {
   border-top: 2px solid #808080;
   border-left: 2px solid #808080;
   border-right: 2px solid #ffffff;
@@ -168,10 +200,117 @@ const openWindow = (windowId) => {
   transform: translate(1px, 1px);
 }
 
-/* small gray pills for tech stack */
-.pill {
-  padding: 2px 6px;
-  border: 1px solid #808080;
-  background: #e0e0e0;
+/* ===================================
+   Content Sections
+   =================================== */
+.content-section {
+  background: white;
+  padding: 20px 18px;
+  border-bottom: 1px solid #d0d0d0;
 }
+
+.content-section:last-child {
+  border-bottom: 2px solid #a0a0a0;
+}
+
+.section-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0 0 12px 0;
+  color: #1a1a1a;
+  letter-spacing: 0.3px;
+}
+
+.subsection-title {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 16px 0 8px 0;
+  color: #333;
+}
+
+.bio-text {
+  margin: 0 0 12px 0;
+  line-height: 1.65;
+  color: #2c2c2c;
+}
+
+.bio-text:last-child {
+  margin-bottom: 0;
+}
+
+/* ===================================
+   Contact & Social Links
+   =================================== */
+.email-link {
+  color: #0000ee;
+  text-decoration: underline;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.email-link:hover {
+  color: #551a8b;
+}
+
+.socials-container {
+  margin-top: 12px;
+}
+
+.social-links {
+  display: flex;
+  gap: 8px;
+}
+
+.social-icon {
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.social-icon:hover {
+  opacity: 0.7;
+}
+
+.social-icon img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* ===================================
+   Tech Stack Grid
+   =================================== */
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-badge {
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+  transition: transform 0.1s ease;
+}
+
+.tech-badge:hover {
+  transform: translateY(-1px);
+}
+
+/* Tech Stack Colors */
+.python { background: #3776ab; color: white; }
+.javascript { background: #f7df1e; color: black; }
+.typescript { background: #3178c6; color: white; }
+.java { background: #f89820; color: white; }
+.cpp { background: #00599c; color: white; }
+.sql { background: #6c757d; color: white; }
+.react { background: #61dafb; color: black; }
+.fastapi { background: #009688; color: white; }
+.flask { background: #4b4b4b; color: white; }
+.postgres { background: #336791; color: white; }
+.docker { background: #2496ed; color: white; }
+.pytorch { background: #ee4c2c; color: white; }
+.tensorflow { background: #ff6f00; color: white; }
+.aws { background: #232f3e; color: white; }
 </style>

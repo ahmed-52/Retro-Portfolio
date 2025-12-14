@@ -1,5 +1,9 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { useJsonLd } from './composables/useJsonLd'
+
+
+
 import FileWindow from './templates/FileWindow.vue'
 import Window from './templates/Window.vue'
 import Mail from './templates/Mail.vue'
@@ -17,7 +21,9 @@ import {
     useWindowsStore
 } from './stores/windows'
 const windowsStore = useWindowsStore()
+useJsonLd()
 const showLoader = ref(true)
+ // Inject Structured Data
 const windows = windowsStore.windows
 
 const windowComponents = [
