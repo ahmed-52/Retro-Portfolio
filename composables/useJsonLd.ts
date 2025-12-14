@@ -6,11 +6,10 @@ export const useJsonLd = () => {
         "name": "Ahmed Abdulla",
         "image": "https://ahmedabdulla.dev/ahmed400.jpg",
         "jobTitle": "Software Engineer & Researcher",
-        "url": "https://ahmedabdulla.com",
+        "url": "https://ahmedabdulla.dev",
         "sameAs": [
             "https://www.linkedin.com/in/ahmedabdulla1/",
             "https://github.com/ahmed-52",
-            "mailto:aaa384@cornell.edu",
             "https://openreview.net/profile?id=~Ahmed_Abdulla1"
         ],
         "alumniOf": {
@@ -64,9 +63,9 @@ export const useJsonLd = () => {
         "author": [
             { "@type": "Person", "name": "Denizalp Goktas" },
             { "@type": "Person", "name": "Gerardo Riaño-Briceño" },
-            { "@type": "Person", "name": "Ahmed Abdulla" }
+            { "@type": "Person", "name": "Ahmed Abdulla", "url": "https://ahmedabdulla.dev" }
         ],
-        "datePublished": "2025-09",
+        "datePublished": "2025-09-23",
         "publication": {
             "@type": "PublicationEvent",
             "name": "NeurIPS 2025 Workshop on Recent Advances in Time Series Foundation Models",
