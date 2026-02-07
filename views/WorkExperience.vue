@@ -41,12 +41,11 @@
             Right now, I'm working under <a href="https://www.birds.cornell.edu/ccb/dena-j-clink-ph-d/" target="_blank" class="text-link">Dr. Anna Clink</a> and <a href="https://cambodia.wcs.org/" target="_blank" class="text-link">WCS Cambodia</a> on this incredible project at <strong>Boeung Sne</strong>, a critical bird colony site. The work is all about using technology for conservation — building data pipelines that process <strong>bioacoustics recordings</strong> and <strong>drone imagery</strong> to monitor wildlife at scale.
           </p>
 
-          <div class="photo-mosaic">
+          <div class="photo-strip">
             <div 
               v-for="(photo, idx) in cornellPhotos" 
               :key="idx"
-              class="mosaic-photo"
-              :class="`photo-${idx + 1}`"
+              class="strip-photo"
               @click="openModal(photo)"
             >
               <img :src="photo" :alt="`Cornell ${idx + 1}`" />
@@ -176,6 +175,8 @@
             <div class="flex-1">
               <h2 class="section-title">Cornell Data & Strategy Club</h2>
               <p class="section-meta">Founder, Vice President of Tech • Nov 2024 – Present • Ithaca, NY</p>
+            s
+            
             </div>
           </div>
         </div>
@@ -233,8 +234,11 @@ const closeModal = () => {
 
 const cornellPhotos = [
   '/birdlab/birds.png',
-  '/birdlab/birds2.png',
   '/birdlab/birds3.png',
+  '/birdlab/birds5.png',
+  '/birdlab/birds6.png',
+  '/birdlab/birds2.png',
+  '/birdlab/birds7.png',
   '/birdlab/swift.jpg'
 ];
 
